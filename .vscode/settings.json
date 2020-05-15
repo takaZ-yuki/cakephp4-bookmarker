@@ -1,0 +1,13 @@
+{
+  "sqltools.connections": [
+    {
+      "database": "bookmarker_db",
+      "dialect": "MySQL",
+      "name": "bookmarker",
+      "password": "bookmarker_user123",
+      "port": 3306,
+      "server": "localhost",
+      "username": "bookmarker_user"
+    }
+  ]
+}
