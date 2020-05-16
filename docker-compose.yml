@@ -18,6 +18,7 @@ services:
     container_name: bookmarker-app
     volumes:
       - ./web:/var/www/html
+      - ./docker/local/php-fpm/php.ini:/usr/local/etc/php/php.ini
 
   bookmarker-mysql:
 #    image: mysql:latest
