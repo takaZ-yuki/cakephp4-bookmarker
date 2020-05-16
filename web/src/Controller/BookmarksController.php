@@ -109,4 +109,18 @@ class BookmarksController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function tags(...$tags)
+    {
+        // タグ付きのブックマークを探すために BookmarksTable を使用
+        $bookmarks = $this->Bookmarks->find('tagged', [
+            'tags' => $tags
+        ]);
+
+        // ビューテンプレートに変数を渡します
+        $this->set([
+            'bookmarks' => $bookmarks,
+            'tags' => $tags
+        ]);
+    }
 }
