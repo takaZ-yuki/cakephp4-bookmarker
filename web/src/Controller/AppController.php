@@ -44,6 +44,7 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
+            'authorize' => 'Controller', //この行を追加
             'authenticate' => [
                 'Form' => [
                     'fields' => [
@@ -56,11 +57,16 @@ class AppController extends Controller
                 'controller' => 'Users',
                 'action' => 'login'
             ],
-            'unauthorizedRedirect' => $this->referer() // 未認証時、元のページを返します。
+            'unauthorizedRedirect' => $this->referer()
         ]);
 
         // PagesController が動作し続けるように
         // display アクションを許可
         $this->Auth->allow(['display']);
+    }
+
+    public function isAuthorized($user)
+    {
+        return false;
     }
 }
